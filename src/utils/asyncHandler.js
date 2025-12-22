@@ -1,5 +1,6 @@
 //try catch mathod to handle async error
 
+
 // const asyncHandler = (fn) => async (req, res, next)=>{
 //     try{
 //         await fn(req, res, next)
@@ -15,7 +16,7 @@
 
 const asyncHandler = (requestHandler) => {
   return (req, res, next) => {
-    Promise.reesolve(requestHandler(req, res, next)).catch((err) => next(err));
+    Promise.resolve(requestHandler(req, res, next)).catch((err) => next(err));
   };
 };
 

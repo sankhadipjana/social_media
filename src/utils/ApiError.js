@@ -1,4 +1,5 @@
-class ApiError extends Erroe {
+
+class ApiError extends Error {
   constructor(
     statusCode,
     message = "somthing went wrong",
@@ -15,7 +16,7 @@ class ApiError extends Erroe {
     if (stack) {
       this.stack = stack;
     } else {
-      error.captureStackTrace(this, this.constructor);
+      Error.captureStackTrace(this, this.constructor);
     }
   }
 }
